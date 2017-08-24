@@ -1,10 +1,18 @@
+{% load staticfiles %}<!--tell Django that there are static files used on this page-->
 <!doctype html>
 <html>
+    <div class="page-wrapper">
     <head>
         <title>My Hello Web App Project</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <p>I am a basic website.</p>
+        <header>
+        <div class="intro">
+            <h1>Hello World!</h1>
+            <h2>I am a basic website.</h2>
+        </div>
+        </header>
     </body>
+    </div>
 </html>

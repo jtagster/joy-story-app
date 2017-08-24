@@ -5,7 +5,20 @@
     '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
     ----------------------------------------------------------------- 
+notes for git::
 
+Then you can commit the file 
+(git add . then git commit -a -m "Added git ignore file") 
+and now Git won't track those files.
+
+
+also on the venv: 
+And then activate the environment:
+
+
+$ source venv/bin/activate
+Now you're in your bubble, so we can start installing project-specific utilities.
+If you ever need to deactivate your environment, run deactivate.
 
 Welcome to your Django project on Cloud9 IDE!
 
