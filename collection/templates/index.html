@@ -4,9 +4,8 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="preamble">
-        <h1>Hello World!</h1>
-        <p>{% if number %}Number exists!{% endif %}</p>
-    </div>
-
+    {% for thing in things %}
+    <h2>{{ thing.name }}</h2>
+    <p>{{ thing.description }}</p>
+    {% endfor %}
 {% endblock content %}
