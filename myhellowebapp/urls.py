@@ -1,10 +1,18 @@
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import TemplateView #imports so we don't need a view
 
 from collection import views # this imports my views from my collection app
 
 urlpatterns = [
     url(r'^$', views.index, name='home'),
+    url(r'^about/$',
+        TemplateView.as_view(template_name='about.html'),
+        name='about'),
+    url(r'^contact/$', 
+        TemplateView.as_view(template_name='contact.html'),
+        name='contact'),
+        
     url(r'^admin/', admin.site.urls),
 ]
 
@@ -23,3 +31,9 @@ urlpatterns = [
 ]
 
 """
+"""
+Template View: 
+ Instead of pointing to a function in views.py though, we're going to use 
+ Django's generic view called TemplateView that basically says, 
+ "Hey, just display this template."
+ """

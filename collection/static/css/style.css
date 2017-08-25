@@ -33,37 +33,48 @@ h1 {
 h2 { 
 	font: italic normal 1.6em georgia, sans-serif;
 	letter-spacing: 1px; 
-	margin-bottom: 0; 
+	margin-bottom: 1px; 
 	color: #7D775C;
 	}
 h3 { 
 	font: italic normal 1.4em georgia, sans-serif;
 	letter-spacing: 1px; 
-	margin-bottom: 0; 
+	margin-bottom: 5px; 
 	color: #7D775C;
 	}
 a:link { 
 	font-weight: bold; 
 	text-decoration: none; 
-	color: #B7A5DF;
+	color: brown;
 	}
 a:visited { 
 	font-weight: bold; 
 	text-decoration: none; 
-	color: #D4CDDC;
+	color: brown;
 	}
 a:hover, a:focus, a:active { 
 	text-decoration: underline; 
-	color: #9685BA;
+	color: #D4CDDC;
 	}
 abbr {
 	border-bottom: none;
 	}
 header {
-    padding-top: 10px;
-	height: 87px;
+    padding-top: 20px;
+	height: 150px;
 	background-color:rgba(63, 171, 160, 0.35);
+	
 }
+ul {
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    width: 100%;
+}
+
+li a {
+    color: #666;
+}
+
 
 /* specific divs */
 .page-wrapper { 

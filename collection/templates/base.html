@@ -1,0 +1,42 @@
+{% load staticfiles %}<!--tell Django that there are static files used on this page-->
+<!doctype html>
+<html>
+    <div class="page-wrapper">
+    <head>
+        <title>
+            {% block title %}
+                My Hello Web App Project
+            {% endblock title %}
+        </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        {% block header %}{% endblock header %}
+    </head>
+    <body>
+        <header>
+            <h1>Hello Web App</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </body>
+    </div>
+</html>
+
+<!--We’re not going to link to other HTML files like we normally would. 
+This is why we name URLs — we can tell Django that we want to link to the URL 
+named "home," and Django will automatically insert the right path. In the 
+future, if you ever decide to change the URL (like changing /about/ to /about-us/), 
+you would just need to change it in your urls.py file and Django will update your 
+templates for you.-->
