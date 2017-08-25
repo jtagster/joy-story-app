@@ -6,8 +6,16 @@
 {% block content %}
     <h1>Edit "{{ thing.name }}"</h1>
     <form role="form" action="" method="post">
+        <fieldset class="control-group">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% for field in form %}
+            <div class="fieldWrapper">
+            {{ field.errors }}
+                <div class= "control-label">{{ field.label_tag }}</div>
+                <div class>{{ field }}</div>
+            </div>
+        {% endfor %}
         <button type="submit">Submit</button>
+        </fieldset>
     </form>
 {% endblock content %}
