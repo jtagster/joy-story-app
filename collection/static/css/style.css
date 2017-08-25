@@ -1,117 +1,75 @@
-	/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
-
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
-
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
-
-/* basic elements */
-html {
-	margin: 0;
-	padding: 0;
-	}
-body { 
-	font: 75% georgia, sans-serif;
-	line-height: 1.88889;
-	color: #555753; 
-	margin: 0; 
-	padding: 0;
-	}
-p { 
-	margin-top: 0; 
-	text-align: justify;
-	}
-h1 { 
-	font: italic normal 2.5em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 0; 
-	color: #7D775C;
+.navbar{
+    background-color: #45ADA8;
+    margin-bottom: 0;
+    border: 0;
 }
-h2 { 
-	font: italic normal 1.6em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 1px; 
-	color: #7D775C;
-	}
-h3 { 
-	font: italic normal 1.4em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 5px; 
-	color: #7D775C;
-	}
-a:link { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: brown;
-	}
-a:visited { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: brown;
-	}
-a:hover, a:focus, a:active { 
-	text-decoration: underline; 
-	color: #D4CDDC;
-	}
-abbr {
-	border-bottom: none;
-	}
-header {
-    padding-top: 20px;
-	height: 150px;
-	background-color:rgba(63, 171, 160, 0.35);
-	
+
+.navbar .navbar-nav li a {
+	color: #E5FCC2;
+	font-size: 16px;
 }
-ul {
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
+.navbar .navbar-nav li a:hover {
+	background: #547980;
+}
+.page-header {
+    background-color: #45ADA8;
+    margin-bottom: 0;
+    padding: 0px 20px 20px 0px
+   
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #E5FCC2;
+    font-size: 36pt;
+    text-decoration: none;
+}
+body {
+	background: #FFFFF;
+	color: #547980;
+	font-family: 'Open Sans', sans-serif;
+}
+a{
+    color: #547980;
+}
+h1,
+h2 {
+	font-weight: bold;
+}
+p {
+	font-size: 16px;
+	color: #594F4F;
+}
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Indie Flower', cursive;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
     width: 100%;
 }
 
-li a {
-    color: #666;
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
 }
 
+.post {
+    margin-bottom: 70px;
+}
 
-/* specific divs */
-.page-wrapper { 
-	margin: 0; 
-	position: relative;
-	}
-
-.intro { 
-    padding-left: 100px;
-	min-width: 470px;
-	width: 100%;
-	}
-
-.summary {
-	clear: both; 
-	margin: 20px 20px 20px 10px; 
-	width: 160px; 
-	float: left;
-	}
-.summary p {
-	font: italic 1.1em/2.2 georgia; 
-	text-align: center;
-	}
-
-.preamble {
-	clear: right; 
-	padding: 0px 10px 0 10px;
-	}
-.supporting {	
-	padding-left: 10px; 
-	margin-bottom: 40px;
-	}
-
-footer { 
-	text-align: center; 
-	}
-footer a:link, footer a:visited { 
-	margin-right: 20px; 
-	}
-
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
