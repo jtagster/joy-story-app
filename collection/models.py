@@ -3,14 +3,9 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
-class Thing(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    slug = models.SlugField(unique=True)
-    user = models.OneToOneField(User, blank=True, null=True)
 
 class Post(models.Model):
-    user = models.OneToOneField(User, blank=True, null=True)
+    user = models.ForeignKey('auth.User')
     title = models.CharField(max_length=255)
     gratitudeStmt = models.CharField(max_length=255)
     emotionTags = models.CharField(max_length = 500)
@@ -21,7 +16,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
     slug = models.SlugField(unique=True)
-    public = models.BooleanField(initial=False)
+    public = models.BooleanField(default=False)
     
     def publish(self):
         self.published_date = timezone.now()

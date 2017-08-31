@@ -1,28 +1,19 @@
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import slugify
-from collection.forms import ThingForm
-from collection.models import Thing
+from collection.forms import PostForm
+from collection.models import Post
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
 def index(request): 
-    things = Thing.objects.all()
+    user = request.user
+    posts = Post.objects.filter(user=user.id)
     # this is your new view - urls.py will catch that someone wants the homepage 
     #and points to this piece of code, which will render the index.html template.
-    return render(request, 'index.html', {'things': things,})
+    return render(request, 'index.html', {'posts': posts,})
 
-def thing_detail(request, slug):
-    # grab the object...
-    thing = Thing.objects.get(slug=slug)
-
-    # and pass to the template
-    return render(request, 'things/thing_detail.html', {
-        'thing': thing,
-    })
-
-def create_thing(request):
-    form_class = ThingForm
-
+def post_new(request):
+    form_class = PostForm
     # if we're coming from a submitted form, do this
     if request.method == 'POST':
         # grab the data from the submitted form and
@@ -30,68 +21,69 @@ def create_thing(request):
         form = form_class(request.POST)
         if form.is_valid():
             # create an instance but don't save yet
-            thing = form.save(commit=False)
+            post = form.save(commit=False)
 
             # set the additional details
-            thing.user = request.user
-            thing.slug = slugify(thing.name)
+            post.user = request.user
+            post.slug = slugify(post.title)
 
             # save the object
-            thing.save()
+            post.save()
 
             # redirect to our newly created thing
-            return redirect('thing_detail', slug=thing.slug)
+            return redirect('post_detail', slug=post.slug)
 
     # otherwise just create the form
     else:
         form = form_class()
 
-    return render(request, 'things/create_thing.html', {
+    return render(request, 'post/post_new.html', {
         'form': form,
     })
-@login_required
-def edit_thing(request, slug):
+def post_detail(request, slug):
     # grab the object...
-    thing = Thing.objects.get(slug=slug)
+    post = Post.objects.get(slug=slug)
+
+    # and pass to the template
+    return render(request, 'post/post_detail.html', {
+        'post': post,
+    })
+@login_required
+def edit_post(request, slug):
+    # grab the object...
+    post = Post.objects.get(slug=slug)
 
     # make sure the logged in user is the owner of the thing
-    if thing.user != request.user:
+    if post.user != request.user:
         raise Http404
 
     # set the form we're using...
-    form_class = ThingForm
+    form_class = PostForm
 
     # if we're coming to this view from a submitted form,
     # do this
     if request.method == 'POST':
         # grab the data from the submitted form and
         # apply to the form
-        form = form_class(data=request.POST, instance=thing)
+        form = form_class(data=request.POST, instance=post)
         if form.is_valid():
             # save the new data
             form.save()
-            return redirect('thing_detail', slug=thing.slug)
+            return redirect('post_detail', slug=post.slug)
     # otherwise just create the form
     else:
-        form = form_class(instance=thing)
+        form = form_class(instance=post)
 
     # and render the template
-    return render(request, 'things/edit_thing.html', {
-        'thing': thing,
+    return render(request, 'post/edit_post.html', {
+        'post': post,
         'form': form,
     })
-
-def browse_by_name(request, initial=None):
-    if initial:
-        things = Thing.objects.filter(name__istartswith=initial)
-        things = things.order_by('name')
-    else:
-        things = Thing.objects.all().order_by('name')
-
-    return render(request, 'search/search.html', {
-        'things': things,
-        'initial': initial,
-    })
+def post_draft_list(request):
+    user = request.user
+    posts = Post.objects.filter(user=user.id, published_date__isnull=True).order_by('created_date')
+    return render(request, 'post/post_draft_list.html', {'posts': posts})
+    
     
 """
 There are a ton of different ways to display a template simply in the views, 

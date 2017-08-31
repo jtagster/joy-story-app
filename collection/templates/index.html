@@ -4,10 +4,9 @@
 {% endblock title %}
 
 {% block content %}
-    {% for thing in things %}
-    <h2>
-        <a href="{% url 'thing_detail' slug=thing.slug %}">
-            {{ thing.name }}</a></h2>
-    <p>{{ thing.description }}</p>
+    {% for post in posts %}
+    <h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+    <p>{{ post.gratitudeStmt }}</p>
+    <p>written by&nbsp;{{ post.user }} {{ post.published_date}}</p>
     {% endfor %}
 {% endblock content %}
