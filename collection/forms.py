@@ -14,6 +14,15 @@ class PostForm(ModelForm):
             'story': _("My appreciation story:"),
             'public':_("Share this journal publicly?")
         }
-        help_texts = {
-            'gratitudeStmt': _('One sentence statement. (I am thankful for/because...)'),
+class NewPostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ('gratitudeStmt', 'emotionTags', 'sensationTags', 'story', 'title', )
+        labels = {
+            'gratitudeStmt': _("Start with a statement about what brought you joy. \"I appreciate...\" "),
+            'sensationTags': _("What did you see, hear, touch, sense? How did your body feel during the story:"),
+            'emotionTags': _("Use feeling words to describe your emotions in this story:"),
+            'story': _("Tell your story here (Be sure to include ways your story demonstrated how you acted like yourself):"),
+            'title': _("Give your story a name - just 3-4 words, that will help you remember it's joy!"),
+            'public': _("Share this journal publicly?")
         }

@@ -4,15 +4,20 @@
 {% endblock title %}
 
 {% block content %}
+    <div class="well well-lg">
+        <h1>{{ post.title }}</h1>
+        <h2>Jesus,&nbsp; {{ post.gratitudeStmt|linebreaksbr }}</h2>
+    </div>
     <div class="post">
         {% if user == post.user %}
-             <a class="btn btn-default" href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"> Edit</a>
+             <a class="btn save" href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"> Edit</a>
         {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>Jesus,&nbsp; {{ post.gratitudeStmt|linebreaksbr }}</p>
+        <div class="detail">
         <p>I felt:&nbsp;{{ post.emotionTags|linebreaksbr }}</p>
         <p>My body felt:&nbsp;{{ post.sensationTags|linebreaksbr }}</p>
         <p>{{ post.story|linebreaksbr }}</p>
+
+        </div>
     </div>
 {% endblock content %}
 

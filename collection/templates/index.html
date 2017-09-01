@@ -2,11 +2,26 @@
 {% block title %}
     Homepage - {{ block.super }}
 {% endblock title %}
-
 {% block content %}
+{% load humanize %}
+{% if posts %}
+    <div class="post">
     {% for post in posts %}
-    <h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
-    <p>{{ post.gratitudeStmt }}</p>
-    <p>written by&nbsp;{{ post.user }} {{ post.published_date}}</p>
+        <div class="detail">
+            <div class="well well-sm">
+            <h1>{{ post.title }}</h1>   
+            <h3>{{ post.gratitudeStmt }}</h3>
+            <p><small>written by&nbsp;{{ post.user }} {{ post.published_date|naturaltime }}</small></p>
+            <a href="{% url 'post_detail' slug=post.slug %}" class="btn btn-default">View</a>
+            </div>
+        </div>
     {% endfor %}
+    </div>
+{% else %}
+    <div class="jumbotron jumbo">
+        <h1>Welcome to My Joy Story App</h1>
+        <h2>A place to journal about the things you appreciate</h2>
+        <h3>Register for a free account to get started</h3>
+    </div>
+{% endif %}
 {% endblock content %}

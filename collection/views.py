@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import slugify
-from collection.forms import PostForm
+from collection.forms import PostForm, NewPostForm
 from collection.models import Post
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
@@ -13,7 +13,7 @@ def index(request):
     return render(request, 'index.html', {'posts': posts,})
 
 def post_new(request):
-    form_class = PostForm
+    form_class = NewPostForm
     # if we're coming from a submitted form, do this
     if request.method == 'POST':
         # grab the data from the submitted form and

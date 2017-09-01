@@ -4,18 +4,22 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Write a new Joy Story</h1>
-    <form role="form" action="" method="post">
+    <div class="well well-lg">
+        <h1>Write a new Joy Story</h1>
+        <ul class="my-list">
+            <li>Think of a story that has a moderate feeling level, and is not too intense</li>
+            <li>A story that you don't need to feel guarded in re-telling</li>
+            <li>A story you are a participant in</li>
+            <li>A story that illustrates one or more specific good feelings</li>
+        </ul>
+    </div>
+    <div class="post">
+    <form role="form" action="" method="post" class="post-form">
         <fieldset class="control-group">
         {% csrf_token %}
-        {% for field in form %}
-            <div class="fieldWrapper">
-            {{ field.errors }}
-                <div class= "control-label">{{ field.label_tag }}</div>
-                <div class>{{ field }}</div>
-            </div>
-        {% endfor %}
-        <button type="submit">Submit</button>
+            {{ form.as_p }}
         </fieldset>
+        <button type="submit" class= "btn save">Submit</button>
     </form>
+    </div>
 {% endblock content %}
