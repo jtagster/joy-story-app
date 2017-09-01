@@ -22,6 +22,8 @@
                     <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> My Joy Stories</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span> New</a></li>
+                    <li><a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-pencil"></span> Drafts</a></li>
+                    <li><a href="{% url 'feed' %}"><span class="glyphicon glyphicon-list"></span> Joy shared</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     <li><a href"#"><span class="glyphicon glyphicon-user"></span>Hello, {{ user.username }}</a></li>

@@ -24,5 +24,12 @@ class NewPostForm(ModelForm):
             'emotionTags': _("Use feeling words to describe your emotions in this story:"),
             'story': _("Tell your story here (Be sure to include ways your story demonstrated how you acted like yourself):"),
             'title': _("Give your story a name - just 3-4 words, that will help you remember it's joy!"),
-            'public': _("Share this journal publicly?")
+            'public': _("Who can see this?")
         }
+class ShareForm(ModelForm):
+    class Meta:
+        model = Post
+        fields=['public']
+        labels = {
+            'public': _("Who can see this?")
+            }

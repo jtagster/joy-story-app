@@ -5,19 +5,34 @@
 
 {% block content %}
     <div class="well well-lg">
+
         <h1>{{ post.title }}</h1>
         <h2>Jesus,&nbsp; {{ post.gratitudeStmt|linebreaksbr }}</h2>
+
     </div>
+
     <div class="post">
         {% if user == post.user %}
-             <a class="btn save" href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"> Edit</a>
+            {% if post.published_date %}
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+            {% else %}
+                <a class="btn otherBtn" href="{% url 'post_publish' slug=post.slug %}">Publish</a>
+            {% endif %}
+            <a class="btn revBtn" href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></a>
+            <a class="btn revBtn" href="{% url 'post_remove' slug=post.slug %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
-        <div class="detail">
-        <p>I felt:&nbsp;{{ post.emotionTags|linebreaksbr }}</p>
-        <p>My body felt:&nbsp;{{ post.sensationTags|linebreaksbr }}</p>
-        <p>{{ post.story|linebreaksbr }}</p>
+            <div class="detail">
+            <p>I felt:&nbsp;{{ post.emotionTags|linebreaksbr }}</p>
+            <p>My body felt:&nbsp;{{ post.sensationTags|linebreaksbr }}</p>
+            <p>{{ post.story|linebreaksbr }}</p>
 
         </div>
+    <form method="POST" >
+        {% csrf_token %}
+        <div class= "share-form">{{ form}} <button type="submit" class = "btn-small">Save Privacy</button></div>
+    </form>
     </div>
 {% endblock content %}
 

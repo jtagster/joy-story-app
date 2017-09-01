@@ -7,8 +7,7 @@
     <h1>Edit "{{ post.title }}"</h1>
     <form method="POST" class="post-form">
         {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit" class = "save">Submit</button>
+        {{ form }}
+    <button type="submit" class = "save">Submit</button>
     </form>
 {% endblock content %}

@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
+VISIBILITY = (
+    ('PRIVATE', 'only me'),
+    ('PUBLIC', 'everyone'),
+    )
 
 class Post(models.Model):
     user = models.ForeignKey('auth.User')
@@ -16,11 +20,19 @@ class Post(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
     slug = models.SlugField(unique=True)
-    public = models.BooleanField(default=False)
+    public = models.CharField(max_length=7, choices=VISIBILITY, default='PRIVATE')
     
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-
+    
+    def share(self):
+        self.public = 'PUBLIC'
+        self.save()
+    
+    def unshare(self):
+        self.public = 'PRIVATE'
+        self.save()
+    
     def __str__(self):
         return self.title

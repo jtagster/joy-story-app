@@ -31,11 +31,10 @@
     font-size: 36pt;
     text-decoration: none;
 }
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #E5FCC2;
-    float: right;
-    font-size: 22pt;
+.top-menu {
+    color: #547980;
     margin-right: 20px;
+    text-align: right;
 }
 body {
 	background: #FFFFF;
@@ -71,6 +70,14 @@ h2, h3, h4 {
     background-color: #45ADA8;
     color: #E5FCC2
 }
+.otherBtn {
+    background-color: #45ADA8;
+    color: #E5FCC2
+}
+.revBtn {
+    color: #45ADA8;
+    float: right;
+}
 
 .post-form textarea, .post-form input, .post-form label {
     width: 100%;
@@ -85,6 +92,10 @@ h2, h3, h4 {
 .post-form p {
 	color: #594F4F;
 	padding: 20px;
+}
+.share-form {
+    font-size: 8pt;
+    float: right;
 }
 .post {
     margin-bottom: 70px;
