@@ -8,7 +8,7 @@ from django.http import Http404
 
 def index(request): 
     user = request.user
-    posts = Post.objects.filter(user=user.id)
+    posts = Post.objects.filter(user=user.id, published_date__lte=timezone.now())
     # this is your new view - urls.py will catch that someone wants the homepage 
     #and points to this piece of code, which will render the index.html template.
     return render(request, 'index.html', {'posts': posts,})
