@@ -4,10 +4,15 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Registration Form</h1>
+<div class="card" style="width: 20rem;">
+    <div class="card-block">
+        <h4 class="card-title">Card title</h4> 
+        <h1>Registration Form</h1>
     <form role="form" action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p}}
         <input type="submit" value="Submit" />
     </form>
+    </div>
+</div>
 {% endblock content %}

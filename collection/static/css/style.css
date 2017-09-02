@@ -123,3 +123,14 @@ h2, h3, h4 {
     background-color: #9DE0AD;
     color: #594F4F;
 }
+.registration-container{
+    width: auto;  
+    display:inline-block;
+    text-align: left;
+}
+.registration-cainer{
+    position: relative;
+    background: rgba(240, 248, 255, 0.5);
+    width: 250px;
+    margin:0px auto;
+}
