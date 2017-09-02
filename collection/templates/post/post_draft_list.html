@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="well well-sm">
+        <h1>Drafts</h1>
+    </div>
     {% for post in posts %}
-        <div class="well well-sm">
-            <h1>Drafts</h1>
-        </div>
         <div class="post">
             <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
             <h1><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h1>
