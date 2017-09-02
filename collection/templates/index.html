@@ -18,10 +18,14 @@
     {% endfor %}
     </div>
 {% else %}
-    <div class="jumbotron jumbo">
+    <div class="jumbotron">
         <h1>Welcome to My Joy Story App</h1>
         <h2>A place to journal about the things you appreciate</h2>
-        <h3>Register for a free account to get started</h3>
+        {% if user.is_authenticated %}
+        <h3> Click <a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span> New</a> to write your first post</h3>
+        {% else %}
+        <h3><a href="{% url 'registration_register' %}"><span class="glyphicon glyphicon-user"></span> Register</a> for a free account to get started</h3>
+        {% endif %}
     </div>
 {% endif %}
 {% endblock content %}

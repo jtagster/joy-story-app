@@ -20,15 +20,15 @@
             {% else %}
                 <a class="btn otherBtn" href="{% url 'post_publish' slug=post.slug %}">Publish</a>
             {% endif %}
-            <a class="btn revBtn" href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></a>
-            <a class="btn revBtn" href="{% url 'post_remove' slug=post.slug %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn revBtn" title="edit post"href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></a>
+            <a class="btn revBtn" title="delete post" href="{% url 'post_remove' slug=post.slug %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
             <div class="detail">
-            <p>I felt:&nbsp;{{ post.emotionTags|linebreaksbr }}</p>
-            <p>My body felt:&nbsp;{{ post.sensationTags|linebreaksbr }}</p>
-            <p>{{ post.story|linebreaksbr }}</p>
-
-        </div>
+                <p>{{ post.story|linebreaksbr }}</p>
+                <div class="well well-sm tags">
+                    <p>{{ post.emotionTags }}, {{ post.sensationTags|linebreaksbr }}</p>
+                </div>
+            </div>            
     <form method="POST" >
         {% csrf_token %}
         <div class= "share-form">{{ form}} <button type="submit" class = "btn-small">Save Privacy</button></div>

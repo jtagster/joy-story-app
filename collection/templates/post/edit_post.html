@@ -4,10 +4,17 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Edit "{{ post.title }}"</h1>
-    <form method="POST" class="post-form">
+    <div class="well well-lg">
+        <h1>Edit Post:</h1>
+        <h2>"{{ post.title }}"</h2>
+    </div>
+    <div class="post">
+    <form role="form" action="" method="post" class="post-form">
+        <fieldset class="control-group">
         {% csrf_token %}
-        {{ form }}
-    <button type="submit" class = "save">Submit</button>
+            {{ form.as_p }}
+        </fieldset>
+        <button type="submit" class= "btn save"> Save and Preview</button>
     </form>
+    </div>
 {% endblock content %}

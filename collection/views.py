@@ -12,6 +12,7 @@ def index(request):
     # this is your new view - urls.py will catch that someone wants the homepage 
     #and points to this piece of code, which will render the index.html template.
     return render(request, 'index.html', {'posts': posts,})
+@login_required
 def feed(request): 
     #user = request.user
     #postsSelf = Post.objects.filter(user=user.id, public='PUBLIC', published_date__lte=timezone.now())
@@ -23,6 +24,7 @@ def feed(request):
     # this is your new view - urls.py will catch that someone wants the homepage 
     #and points to this piece of code, which will render the index.html template.
     return render(request, 'index.html', {'posts': posts,})
+@login_required
 def post_new(request):
     form_class = NewPostForm
     # if we're coming from a submitted form, do this
@@ -37,7 +39,6 @@ def post_new(request):
             # set the additional details
             post.user = request.user
             post.slug = slugify(post.title)
-            post.publish()
             # save the object
             post.save()
 
@@ -51,6 +52,7 @@ def post_new(request):
     return render(request, 'post/post_new.html', {
         'form': form,
     })
+@login_required
 def post_detail(request, slug):
     # grab the object...
     post = Post.objects.get(slug=slug)
@@ -106,23 +108,33 @@ def edit_post(request, slug):
         'post': post,
         'form': form,
     })
+@login_required
 def post_publish(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    if post.user != request.user:
+        raise Http404
     post.publish()
     return redirect('post_detail', slug=slug) 
+@login_required
 def post_privacy(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    if post.user != request.user:
+        raise Http404
     if post.public == 'PRIVATE':
         post.share()
     else:
         post.unshare()
-    return redirect('post_detail', slug=slug)    
+    return redirect('post_detail', slug=slug)  
+@login_required
 def post_draft_list(request):
     user = request.user
     posts = Post.objects.filter(user=user.id, published_date__isnull=True).order_by('created_date')
     return render(request, 'post/post_draft_list.html', {'posts': posts})
+@login_required
 def post_remove(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    if post.user != request.user:
+        raise Http404
     post.delete()
     return redirect('home')   
   

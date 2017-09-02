@@ -107,7 +107,12 @@ h2, h3, h4 {
     width: 100%;
     text-align: left;
 }
-
+.tags {
+    font-size: small;
+    color: #594F4F;
+    padding:0px;
+    padding-left:1em;
+}
 .my-list{
     width:auto;  
     display:inline-block;
