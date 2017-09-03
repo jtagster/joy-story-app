@@ -28,11 +28,13 @@
                 <div class="well well-sm tags">
                     <p>{{ post.emotionTags }}, {{ post.sensationTags|linebreaksbr }}</p>
                 </div>
-            </div>            
+            </div> 
+    {% if user == post.user %}
     <form method="POST" >
         {% csrf_token %}
         <div class= "share-form">{{ form}} <button type="submit" class = "btn-small">Save Privacy</button></div>
     </form>
+    {% endif %}
     </div>
 {% endblock content %}
 
