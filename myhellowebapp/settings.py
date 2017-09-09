@@ -25,7 +25,8 @@ SECRET_KEY = 'yko&g01+w7y)5f8$rbp@0v(k$9wnpv)^f5v!1vo7h!ptq9_)dz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.myjoystory.com',]
+#change this before deploying
+ALLOWED_HOSTS = ['www.myjoystory.com', '*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
