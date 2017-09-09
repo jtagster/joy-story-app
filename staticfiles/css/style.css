@@ -1,0 +1,136 @@
+.navbar{
+    background-color: #45ADA8;
+    margin-bottom: 0;
+    border: 0;
+    padding-right: 40px;
+    color: #E5FCC2;
+    font-family: 'Indie Flower', cursive;
+}
+
+.navbar .navbar-nav li a {
+	color: #E5FCC2;
+	font-size: 20px;
+}
+.navbar-nav li a:hover {
+    background-color:#547980;
+}
+.navbar-nav li  {
+	color: #E5FCC2;
+	font-size: 20px;
+}
+.page-header {
+    background-color: #45ADA8;
+    margin-bottom: 0;
+    padding: 20px 20px 20px 20px
+   
+}
+
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #E5FCC2;
+    font-size: 36pt;
+    text-decoration: none;
+}
+.top-menu {
+    color: #547980;
+    margin-right: 20px;
+    text-align: right;
+}
+body {
+	background: #FFFFF;
+	color: #547980;
+	font-size: 12pt;
+	font-family: 'Open Sans', sans-serif;
+}
+a{
+    color: #547980;
+}
+h1 {
+	font-weight: bold;
+}
+h2{
+    font-weight: bold;
+    color: #594F4F; 
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h2, h3, h4 {
+    font-family: 'Indie Flower', cursive;
+}
+
+.date {
+    color: #594F4F;
+}
+
+.save {
+    float: right;
+    background-color: #45ADA8;
+    color: #E5FCC2
+}
+.otherBtn {
+    background-color: #45ADA8;
+    color: #E5FCC2
+}
+.revBtn {
+    color: #45ADA8;
+    float: right;
+}
+
+.post-form textarea, .post-form input, .post-form label {
+    width: 100%;
+	color: #547980;
+	margin-bottom: 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+.post-form label {
+    text-align: left;
+    margin-top: 20px;
+}
+.post-form p {
+	color: #594F4F;
+	padding: 20px;
+}
+.share-form {
+    font-size: 8pt;
+    float: right;
+}
+.post {
+    margin-bottom: 70px;
+    display:inline-block;
+    width: 80%;
+    text-align: center;
+}
+.detail {
+    width: 100%;
+    text-align: left;
+}
+.tags {
+    font-size: small;
+    color: #594F4F;
+    padding:0px;
+    padding-left:1em;
+}
+.my-list{
+    width:auto;  
+    display:inline-block;
+    text-align: left;
+    margin-top: 30px;
+}
+.jumbo {
+    background-color: #9DE0AD;
+    color: #594F4F;
+}
+.registration-container{
+    width: auto;  
+    display:inline-block;
+    text-align: left;
+}
+.registration-cainer{
+    position: relative;
+    background: rgba(240, 248, 255, 0.5);
+    width: 250px;
+    margin:0px auto;
+}
