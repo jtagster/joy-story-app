@@ -83,11 +83,20 @@ WSGI_APPLICATION = 'myhellowebapp.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'joystoryapp',
+        'USER': 'postgres',
+        'PASSWORD': 'cloud9isawesome',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+'''DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
-
+}'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
