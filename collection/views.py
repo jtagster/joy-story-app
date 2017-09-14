@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.template.defaultfilters import slugify
-from collection.forms import PostForm, NewPostForm, ShareForm
-from collection.models import Post
+from collection.forms import PostForm, NewPostForm, ShareForm, ImageUploadForm
+from collection.models import Post, Upload
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
@@ -57,7 +57,7 @@ def post_detail(request, slug):
     # grab the object...
     post = Post.objects.get(slug=slug)
     form_class = ShareForm
-
+    uploads = post.uploads.all()
     # if we're coming to this view from a submitted form,
     # do this
     if request.method == 'POST':
@@ -76,6 +76,7 @@ def post_detail(request, slug):
     return render(request, 'post/post_detail.html', {
         'post': post,
         'form': form,
+        'uploads': uploads,
     })
 @login_required
 def edit_post(request, slug):
@@ -137,7 +138,30 @@ def post_remove(request, slug):
         raise Http404
     post.delete()
     return redirect('home')   
-  
+@login_required
+def edit_post_uploads(request, slug):
+    post = Post.objects.get(slug=slug)
+    
+    if post.user != request.user:
+        raise Http404
+        
+    form_class = ImageUploadForm
+    
+    if request.method == 'POST':
+        form = form_class(data=request.POST,
+            files=request.FILES, instance=post)
+        if form.is_valid():
+            Upload.objects.create(image=form.cleaned_data['image'], post=post,)
+            return redirect('edit_post_uploads', slug=post.slug)
+    else:
+        form = form_class(instance=post)
+    uploads = post.uploads.all()
+    
+    return render(request, 'post/edit_post_uploads.html',{
+        'post':post,
+        'form': form, 
+        'uploads': uploads,
+    })
 """
 There are a ton of different ways to display a template simply in the views, 
 and my favorite is Django's shortcut function called render. This is something 

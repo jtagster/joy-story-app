@@ -36,3 +36,13 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+
+#our helper
+def get_image_path(instance, filename):
+    return '/'.join(['post_images', instance.post.slug, filename])
+    
+class Upload(models.Model):
+    post = models.ForeignKey(Post, related_name="uploads")
+    image = models.ImageField(upload_to=get_image_path)
+        

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
-from collection.models import Post
+from collection.models import Post, Upload
 
         
 class PostForm(ModelForm):
@@ -33,3 +33,9 @@ class ShareForm(ModelForm):
         labels = {
             'public': _("Who can see this?")
             }
+            
+            
+class ImageUploadForm(ModelForm):
+    class Meta: 
+        model = Upload
+        fields = ('image',)

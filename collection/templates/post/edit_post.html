@@ -7,7 +7,9 @@
     <div class="well well-lg">
         <h1>Edit Post:</h1>
         <h2>"{{ post.title }}"</h2>
+        <a href="{% url 'edit_post_uploads' slug=post.slug %}"> Edit images</a>
     </div>
+
     <div class="post">
     <form role="form" action="" method="post" class="post-form">
         <fieldset class="control-group">

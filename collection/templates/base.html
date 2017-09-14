@@ -28,6 +28,7 @@
                     <ul class="nav navbar-nav navbar-right">
                     <li><a href"#"><span class="glyphicon glyphicon-user"></span>Hello, {{ user.username }}</a></li>
                     <li><small><a href="{% url 'auth_logout' %}"> (Log out)</a></small></p></li>
+                    <li><a href="{% url 'password_change' %}">Change password</a></li>
                     {% else %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

@@ -8,7 +8,6 @@
 
         <h1>{{ post.title }}</h1>
         <h2>{{ post.gratitudeStmt|linebreaksbr }}</h2>
-
     </div>
 
     <div class="post">
@@ -20,11 +19,15 @@
             {% else %}
                 <a class="btn otherBtn" href="{% url 'post_publish' slug=post.slug %}">Publish</a>
             {% endif %}
-            <a class="btn revBtn" title="edit post"href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></a>
             <a class="btn revBtn" title="delete post" href="{% url 'post_remove' slug=post.slug %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn revBtn" title="edit post"href="{% url 'edit_post' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></a>
+            <a class="btn revBtn" title="add image" href="{% url 'edit_post_uploads' slug=post.slug %}"> <span class="glyphicon glyphicon-picture"></span></a>            
         {% endif %}
             <div class="detail">
                 <p>{{ post.story|linebreaksbr }}</p>
+                {% for upload in uploads %}
+                    <img src="{{ upload.image.url }}" alt="" />
+                {% endfor %}
                 <div class="well well-sm tags">
                     <p>{{ post.emotionTags }}, {{ post.sensationTags|linebreaksbr }}</p>
                 </div>
