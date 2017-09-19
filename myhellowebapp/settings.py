@@ -139,15 +139,25 @@ STATICFILES_DIRS = (
 )
 ACCOUNT_ACTIVATION_DAYS = 7
 
-SERVER_EMAIL = 'postmaster@mg.myjoystory.com'
+SERVER_EMAIL = 'jlmontag@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_HOST_PASSWORD = 'b476c9606d9a9ec3dd2d8472ae716770'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'marchmarch'
 EMAIL_HOST_USER = SERVER_EMAIL
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_REDIRECT_URL = "home"
+
+#SERVER_EMAIL = 'postmaster@mg.myjoystory.com'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.mailgun.org'
+#EMAIL_HOST_PASSWORD = 'b476c9606d9a9ec3dd2d8472ae716770'
+#EMAIL_HOST_USER = SERVER_EMAIL
+#EMAIL_USE_TLS = True
+#EMAIL_PORT = 587
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#LOGIN_REDIRECT_URL = "home"
 
 ADMINS = [
     ('Jennifer', 'jlmontag@gmail.com')
