@@ -27,7 +27,7 @@
             <div class="detail">
                 <p>{{ post.story|linebreaksbr }}</p>
                 {% for upload in uploads %}
-                    <img src="{{ upload.image.url }}" alt="" />
+                    <img src="{{upload.image.url}}" alt="" />
                 {% endfor %}
                 <div class="well well-sm tags">
                     <p>{{ post.emotionTags }}, {{ post.sensationTags|linebreaksbr }}</p>
