@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +23,7 @@ MEDIA_URL = '/media/'
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yko&g01+w7y)5f8$rbp@0v(k$9wnpv)^f5v!1vo7h!ptq9_)dz'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'myhellowebapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'joystoryapp',
-        'USER': 'postgres',
-        'PASSWORD': 'cloud9isawesome',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -139,15 +139,15 @@ STATICFILES_DIRS = (
 )
 ACCOUNT_ACTIVATION_DAYS = 7
 
-#SERVER_EMAIL = 'postmaster@mg.myjoystory.com'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.mailgun.org'
-#EMAIL_HOST_PASSWORD = 'b476c9606d9a9ec3dd2d8472ae716770'
-#EMAIL_HOST_USER = SERVER_EMAIL
-#EMAIL_USE_TLS = True
-#EMAIL_PORT = 587
-#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-#LOGIN_REDIRECT_URL = "home"
+SERVER_EMAIL = config('EMAIL_SERVER')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST_NAME')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWRD')
+EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+LOGIN_REDIRECT_URL = "home"
 
 ADMINS = [
     ('Jennifer', 'jlmontag@gmail.com')
