@@ -6,4 +6,4 @@ wsgiref==0.1.2
 hellowebapp-deploy
 psycopg2==2.6.1
 Pillow
-decouple
+python-decouple==3.1
