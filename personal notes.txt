@@ -1,10 +1,3 @@
-
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
 ##notes for git::
 
 Then you can commit the file 
@@ -49,6 +42,10 @@ In case you want to run your Django application from the terminal just run:
 
     $ python manage.py runserver $IP:$PORT
     
+3) Your code is running at https://appreciation-journal-jmontag.c9users.io
+
+4) to push to heroku 
+git push heroku master 
 ## Configuration
 
 You can configure your Python version and `PYTHONPATH` used in
