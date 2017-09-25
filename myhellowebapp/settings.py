@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'collection', #my new app
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -175,3 +176,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
