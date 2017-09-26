@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'collection', #my new app
     'storages',
+    'boto3',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -175,10 +176,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000',
-}
+
 AWS_STORAGE_BUCKET_NAME = config('BUCKET_NAME')
 AWS_S3_REGION_NAME = config('REGION_NAME')  # e.g. us-east-2
 AWS_ACCESS_KEY_ID = config('ACCESS_KEY')
